@@ -14,7 +14,6 @@
 
 .mode {
     grid-area: mode;
-    display: flex;
 }
 
 .details {

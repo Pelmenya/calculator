@@ -1,0 +1,29 @@
+.button-mode {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 36px;
+    gap: 6px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 15px;
+    color: var(--text-color-btn);
+}
+
+.button-mode_active {
+    background: #fff;
+    border: 1px solid var(--border-btn);
+    border-radius: 5px;
+}
+
+.button-mode__svg {
+    stroke: var(--text-color-btn);
+    fill: transparent;
+}
+
+.button-mode__svg_active {
+    stroke: var(--iris-100);
+}

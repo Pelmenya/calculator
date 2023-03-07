@@ -1,5 +1,8 @@
 .symbol-btn {
     height: 48px;
-    border: 1px solid #e2e3e5;
+    border: 1px solid var(--border-btn);
     border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
 }

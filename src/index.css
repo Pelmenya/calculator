@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --iris-100: #5d5fef;
+    --border-btn: #e2e3e5;
+    --text-color-btn:  #4d5562;
+}
