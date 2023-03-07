@@ -1,4 +1,29 @@
-.app {
-  font-family: 'HelveticaNeueCyr', sans-serif;
-  line-height: 1.5;
+.layout {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: auto 240px 240px auto;
+    grid-template-rows: auto 40px 450px auto;
+    column-gap: 60px;
+    row-gap: 30px;
+    grid-template-areas:
+        '. . . .'
+        '. . mode .'
+        '. details constructor .'
+        '. . . .';
+}
+
+.mode {
+    grid-area: mode;
+    display: flex;
+}
+
+.details {
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.constructor {
+    grid-area: constructor;
 }
