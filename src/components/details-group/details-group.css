@@ -1,6 +1,22 @@
 .details-group {
-    position: relative;
-    z-index: 1;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
     cursor: move;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.details-group:hover {
+    border: 1px solid var(--border-btn);
+}
+
+.details-group_selected {
+    opacity: .5;
+    box-shadow: none;
+    border: 1px solid transparent;
+}
+
+.details-group_selected:hover {
+    border: 1px solid transparent;
 }

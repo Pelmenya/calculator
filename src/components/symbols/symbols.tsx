@@ -4,7 +4,7 @@ import { SymbolBtn } from '../symbol-btn/symbol-btn';
 import './symbols';
 
 export const Symbols = () => (
-    <DetailsGroup>
+    <DetailsGroup name='symbols'>
         <div className="grid grid-cols-3 gap-2">
             {symbols.map((symbol) => (
                 <SymbolBtn

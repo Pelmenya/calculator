@@ -6,6 +6,8 @@ import './static/fonts/stylesheet.css';
 import { App } from './app';
 import { Provider as ReduxProvider } from 'react-redux';
 import { store } from './redux/store/store';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement,
@@ -13,8 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <ReduxProvider store={store}>
-            <App />
+            <DndProvider backend={HTML5Backend}>
+                <App />
+            </DndProvider>
         </ReduxProvider>
     </React.StrictMode>,
 );
-

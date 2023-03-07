@@ -1,0 +1,1 @@
+export type TDetails = 'display' | 'operations' | 'symbols' | 'equally';

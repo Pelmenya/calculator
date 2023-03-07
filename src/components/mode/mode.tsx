@@ -13,13 +13,13 @@ export const Mode = () => {
         <div className="h-9 w-full box-content bg-gray-100 border border-gray-100 rounded-md flex justify-between">
             <button
                 className={cn('px-3 rounded-md button-mode', {
-                    'button-mode_active': mode === 'Constructor',
+                    'button-mode_active': mode === 'Runtime',
                 })}
-                onClick={() => dispatch(setMode('Constructor'))}
+                onClick={() => dispatch(setMode('Runtime'))}
             >
                 <svg
                     className={cn('button-mode__svg', {
-                        'button-mode__svg_active': mode === 'Constructor',
+                        'button-mode__svg_active': mode === 'Runtime',
                     })}
                     width="20"
                     height="20"
@@ -43,13 +43,13 @@ export const Mode = () => {
             </button>
             <button
                 className={cn('px-3 rounded-md button-mode', {
-                    'button-mode_active': mode === 'Runtime',
+                    'button-mode_active': mode === 'Constructor',
                 })}
-                onClick={() => dispatch(setMode('Runtime'))}
+                onClick={() => dispatch(setMode('Constructor'))}
             >
                 <svg
                     className={cn('button-mode__svg', {
-                        'button-mode__svg_active': mode === 'Runtime',
+                        'button-mode__svg_active': mode === 'Constructor',
                     })}
                     width="20"
                     height="20"

@@ -1,0 +1,15 @@
+.empty-constructor__text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--iris-100);
+}
+
+.empty-constructor__text-small {
+    max-width: 100px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+}
