@@ -8,7 +8,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "eslint . --fix",
-    "validate": "npm-run-all eslint",
+    "validate": "npm-run-all test eslint",
     "prepare": "husky install"
   },
   "eslintConfig": {
