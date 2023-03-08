@@ -7,6 +7,12 @@
     width: 100%;
 }
 
+.details-group-inner {
+    background: transparent;
+    width: 100%;
+}
+
+
 .details-group:hover {
     border: 1px solid var(--border-btn);
 }

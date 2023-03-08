@@ -52,7 +52,7 @@ export const Constructor = () => {
                 <div
                     ref={drop}
                     className={cn(
-                        'flex w-full h-full flex-col gap-[10px] border-[2px]',
+                        'flex w-full h-full flex-col gap-[9px] border-[2px]',
                         {
                             ['border-transparent']: !isHover,
                             ['border-dashed rounded-md bg-sky-50']: isHover,
@@ -67,11 +67,11 @@ export const Constructor = () => {
                     {constructorList.map((detail) => {
                         switch (detail) {
                             case 'operations':
-                                return <Operations type='constructor' />;
+                                return <Operations key={detail} type='constructor' />;
                             case 'symbols':
-                                return <Symbols type='constructor' />;
+                                return <Symbols key={detail} type='constructor' />;
                             case 'equally':
-                                return <Equally type='constructor'/>;
+                                return <Equally key={detail} type='constructor'/>;
                         }
                     })}
                 </div>
