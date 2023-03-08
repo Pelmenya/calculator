@@ -4,6 +4,7 @@ import { useAppDispatch } from '../../hooks/use-app-dispatch';
 import { setMode } from '../../redux/slices/mode';
 import { useAppSelector } from '../../hooks/use-app-selector';
 import { getModeState } from '../../redux/controllers/mode';
+import { setInitCalculate } from '../../redux/slices/calculate';
 
 export const Mode = () => {
     const { mode } = useAppSelector(getModeState);
@@ -15,7 +16,10 @@ export const Mode = () => {
                 className={cn('px-3 rounded-md button-mode', {
                     'button-mode_active': mode === 'Runtime',
                 })}
-                onClick={() => dispatch(setMode('Runtime'))}
+                onClick={() => {
+                    dispatch(setMode('Runtime'));
+                    dispatch(setInitCalculate());
+                }}
             >
                 <svg
                     className={cn('button-mode__svg', {
@@ -45,7 +49,10 @@ export const Mode = () => {
                 className={cn('px-3 rounded-md button-mode', {
                     'button-mode_active': mode === 'Constructor',
                 })}
-                onClick={() => dispatch(setMode('Constructor'))}
+                onClick={() => {
+                    dispatch(setMode('Constructor'));
+                    dispatch(setInitCalculate());
+                }}
             >
                 <svg
                     className={cn('button-mode__svg', {

@@ -5,6 +5,7 @@ import { operations } from '../../utils/constants/operations';
 import { DetailsGroup } from '../details-group/details-group';
 import { SymbolBtn } from '../symbol-btn/symbol-btn';
 import cn from 'classnames';
+import { TOperations } from '../../utils/types/t-operations';
 
 export const Operations = ({ type }: TCalculatorContainer) => {
     const { details } = useAppSelector(getDetailsState);
@@ -15,6 +16,7 @@ export const Operations = ({ type }: TCalculatorContainer) => {
                 {operations.map((operation) => (
                     <SymbolBtn
                         key={operation}
+                        operation={operation as TOperations}
                         className={cn({
                             ['cursor-move']:
                                 details.includes('operations') ||

@@ -6,6 +6,7 @@ import cn from 'classnames';
 import './symbols';
 import { useAppSelector } from '../../hooks/use-app-selector';
 import { getDetailsState } from '../../redux/controllers/details';
+import { TSymbols } from '../../utils/types/t-symbols';
 
 export const Symbols = ({ type }: TCalculatorContainer) => {
     const { details } = useAppSelector(getDetailsState);
@@ -15,6 +16,7 @@ export const Symbols = ({ type }: TCalculatorContainer) => {
                 {symbols.map((symbol) => (
                     <SymbolBtn
                         key={symbol}
+                        symbol={symbol as TSymbols}
                         className={cn(symbol === '0' ? 'col-span-2' : '', {
                             ['cursor-move']:
                                 details.includes('symbols') ||

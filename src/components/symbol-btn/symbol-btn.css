@@ -6,3 +6,11 @@
     font-weight: 500;
     font-style: normal;
 }
+
+.symbol-btn_runtime {
+    cursor: pointer;
+}
+
+.symbol-btn_runtime:hover {
+    border: 2px solid var(--iris-100);
+}

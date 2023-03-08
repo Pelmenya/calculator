@@ -12,6 +12,9 @@
     width: 100%;
 }
 
+.detail-cursor_cursor-pointer {
+    cursor: pointer;
+}
 
 .details-group:hover {
     border: 1px solid var(--border-btn);

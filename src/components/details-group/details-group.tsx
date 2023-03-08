@@ -8,6 +8,7 @@ import { getDetailsState } from '../../redux/controllers/details';
 import { TCalculatorContainer } from '../../redux/types/t-calculator-container';
 import { useAppDispatch } from '../../hooks/use-app-dispatch';
 import { setDetailsConstructor } from '../../redux/slices/details';
+import { getModeState } from '../../redux/controllers/mode';
 
 export type TDetailsGroupProps = TBaseProps &
 TCalculatorContainer & {
@@ -15,6 +16,7 @@ TCalculatorContainer & {
 };
 
 export const DetailsGroup = ({ children, name, type }: TDetailsGroupProps) => {
+    const { mode } = useAppSelector(getModeState);
     const dispatch = useAppDispatch();
     const { details, constructor } = useAppSelector(getDetailsState);
 
@@ -62,12 +64,15 @@ export const DetailsGroup = ({ children, name, type }: TDetailsGroupProps) => {
 
     return (
         <div
-            ref={type === 'constructor' ? drop : null}
+            ref={
+                mode === 'Runtime' ? null : type === 'constructor' ? drop : null
+            }
             className={cn('p-1 details-group bg-white', {
                 ['details-group_selected']: !details.includes(name),
                 ['details-group_blocked']:
                     (!details.includes(name) && type !== 'constructor') ||
                     isContructorDisplay,
+                ['detail-cursor_cursor-pointer']: mode === 'Runtime',
             })}
             style={
                 isBlocked
@@ -77,13 +82,15 @@ export const DetailsGroup = ({ children, name, type }: TDetailsGroupProps) => {
         >
             <div
                 ref={
-                    isBlocked
-                        ? isContructorDisplay
-                            ? null
-                            : type === 'details'
-                                ? dragRef
-                                : drag
-                        : null
+                    mode === 'Runtime'
+                        ? null
+                        : isBlocked
+                            ? isContructorDisplay
+                                ? null
+                                : type === 'details'
+                                    ? dragRef
+                                    : drag
+                            : null
                 }
                 className={cn('details-group-inner', {
                     ['details-group_blocked']:

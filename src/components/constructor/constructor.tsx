@@ -11,9 +11,11 @@ import { Equally } from '../equally/equally';
 import { Operations } from '../operations/operations';
 import { Symbols } from '../symbols/symbols';
 import cn from 'classnames';
+import { getCalculateState } from '../../redux/controllers/calculate';
 
 export const Constructor = () => {
     const dispatch = useAppDispatch();
+    const { result } = useAppSelector(getCalculateState);
     const { constructor, details } = useAppSelector(getDetailsState);
     const [constructorList, setConstructorList] = useState(constructor);
 
@@ -61,7 +63,7 @@ export const Constructor = () => {
                 >
                     {constructorList.includes('display') && (
                         <Display type='constructor'>
-                            <>1</>
+                            <>{result}</>
                         </Display>
                     )}
                     {constructorList.map((detail) => {

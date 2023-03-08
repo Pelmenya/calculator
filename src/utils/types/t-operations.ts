@@ -1,0 +1,1 @@
+export type TOperations = '/' | 'x' | '-' | '+';
