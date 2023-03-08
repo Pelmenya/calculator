@@ -2,11 +2,14 @@ import './display.css';
 import { DetailsGroup } from '../details-group/details-group';
 import cn from 'classnames';
 import { TBaseProps } from '../../redux/types/t-base-props';
+import { TCalculatorContainer } from '../../redux/types/t-calculator-container';
 
-export const Display = ({ children }: TBaseProps) => {
+
+
+export const Display = ({ children, type }: TBaseProps & TCalculatorContainer) => {
 
     return (
-        <DetailsGroup name='display'>
+        <DetailsGroup name='display' type={type}>
             <div 
                 className={cn(
                     'flex h-[52px] bg-gray-100 rounded-md items-center justify-end',

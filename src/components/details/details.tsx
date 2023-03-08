@@ -6,12 +6,12 @@ import { Symbols } from '../symbols/symbols';
 export const Details = () => {
     return (
         <>
-            <Display>
+            <Display type='details'>
                 <span>0</span>
             </Display>
-            <Operations />
-            <Symbols />
-            <Equally />
+            <Operations type='details'/>
+            <Symbols type='details'/>
+            <Equally type='details'/>
         </>
     );
 };

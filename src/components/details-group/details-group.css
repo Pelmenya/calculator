@@ -4,7 +4,7 @@
     cursor: move;
     border: 1px solid transparent;
     box-sizing: border-box;
-    background: #fff;
+    width: 100%;
 }
 
 .details-group:hover {
@@ -19,4 +19,8 @@
 
 .details-group_selected:hover {
     border: 1px solid transparent;
+}
+
+.details-group_blocked {
+    cursor: no-drop;
 }

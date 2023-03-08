@@ -3,10 +3,12 @@ import { TDetails } from '../types/t-details';
 
 export interface IDetailsState {
     details: TDetails[];
+    constructor: TDetails[]
 }
 
 const initialState: IDetailsState = {
     details: ['display', 'operations', 'symbols', 'equally'],
+    constructor: [],
 };
 
 export const detailsSlice = createSlice({
@@ -15,8 +17,11 @@ export const detailsSlice = createSlice({
         setDetails(state, action) {
             state.details = action.payload;
         },
+        setDetailsConstructor(state, action) {
+            state.constructor = action.payload;
+        },
     },
 },
 );
 
-export const { setDetails } = detailsSlice.actions;
+export const { setDetails, setDetailsConstructor } = detailsSlice.actions;

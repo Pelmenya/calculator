@@ -1,5 +1,6 @@
 import { useDrop } from 'react-dnd';
 import './app.css';
+import { Constructor } from './components/constructor/constructor';
 import { Details } from './components/details/details';
 import { EmptyConstructor } from './components/empty-constructor/empty-constructor';
 import { Mode } from './components/mode/mode';
@@ -21,7 +22,7 @@ export function App() {
                 <Details />
             </div>
             <div className="constructor">
-                <EmptyConstructor />
+                <Constructor />
             </div>
         </div>
     );

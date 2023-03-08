@@ -1,6 +1,15 @@
 import './empty-constructor.css';
-export const EmptyConstructor = () => (
-    <div className="flex w-full h-full border-[2px] border-dashed rounded-md items-center justify-center">
+import cn from 'classnames';
+
+export type TEmptyConstructorProps = {
+    isHover: boolean;
+};
+
+export const EmptyConstructor = ({ isHover = false } : TEmptyConstructorProps ) => (
+    <div className={cn(
+        'flex w-full h-full border-[2px] border-dashed rounded-md items-center justify-center',
+        { ['bg-sky-50']: isHover },
+    )}>
         <div className="flex flex-col items-center empty-constructor">
             <svg
                 width="22"

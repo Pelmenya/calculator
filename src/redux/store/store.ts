@@ -8,7 +8,7 @@ import { detailsSlice } from '../slices/details';
 export const store = configureStore({
     reducer: {
         [modeSlice.name]: modeSlice.reducer,
-        [detailsSlice.name]: modeSlice.reducer,
+        [detailsSlice.name]: detailsSlice.reducer,
     },
     devTools: process.env.NODE_ENV !== 'production',
     middleware: (gDM) => gDM().concat(logger),
