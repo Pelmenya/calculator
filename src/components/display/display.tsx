@@ -8,10 +8,11 @@ import './display.css';
 export const Display = ({
     children,
     type,
+    onDoubleClick,
 }: TBaseProps & TCalculatorContainer) => {
     
     return (
-        <DetailsGroup name="display" type={type}>
+        <DetailsGroup onDoubleClick={onDoubleClick} name="display" type={type}>
             <div
                 className={cn(
                     'flex h-[52px] bg-gray-100 rounded-md items-center justify-end',

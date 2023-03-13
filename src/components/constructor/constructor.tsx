@@ -41,6 +41,15 @@ export const Constructor = () => {
         setConstructorList(constructor);
     }, [setConstructorList, constructor]);
 
+    const handlerOnDoubleClick = (detail: TDetails) => {
+        dispatch(setDetails([...details, detail]));
+        dispatch(
+            setDetailsConstructor(
+                constructorList.filter((item) => item !== detail),
+            ),
+        );
+    };
+
     return (
         <>
             {!constructor.length ? (
@@ -54,7 +63,7 @@ export const Constructor = () => {
                 <div
                     ref={drop}
                     className={cn(
-                        'flex w-full h-full flex-col gap-[9px] border-[2px]',
+                        'flex w-full h-full flex-col gap-[7px] border-[2px]',
                         {
                             ['border-transparent']: !isHover,
                             ['border-dashed rounded-md bg-sky-50']: isHover,
@@ -62,18 +71,47 @@ export const Constructor = () => {
                     )}
                 >
                     {constructorList.includes('display') && (
-                        <Display type='constructor'>
+                        <Display
+                            type="constructor"
+                            onDoubleClick={() =>
+                                handlerOnDoubleClick('display')
+                            }
+                        >
                             <>{result}</>
                         </Display>
                     )}
                     {constructorList.map((detail) => {
                         switch (detail) {
                             case 'operations':
-                                return <Operations key={detail} type='constructor' />;
+                                return (
+                                    <Operations
+                                        key={detail}
+                                        type="constructor"
+                                        onDoubleClick={() =>
+                                            handlerOnDoubleClick('operations')
+                                        }
+                                    />
+                                );
                             case 'symbols':
-                                return <Symbols key={detail} type='constructor' />;
+                                return (
+                                    <Symbols
+                                        key={detail}
+                                        type="constructor"
+                                        onDoubleClick={() =>
+                                            handlerOnDoubleClick('symbols')
+                                        }
+                                    />
+                                );
                             case 'equally':
-                                return <Equally key={detail} type='constructor'/>;
+                                return (
+                                    <Equally
+                                        key={detail}
+                                        type="constructor"
+                                        onDoubleClick={() =>
+                                            handlerOnDoubleClick('equally')
+                                        }
+                                    />
+                                );
                         }
                     })}
                 </div>

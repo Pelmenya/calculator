@@ -7,11 +7,12 @@ import './symbols';
 import { useAppSelector } from '../../hooks/use-app-selector';
 import { getDetailsState } from '../../redux/selectors/details';
 import { TSymbols } from '../../utils/types/t-symbols';
+import { TBaseProps } from '../../redux/types/t-base-props';
 
-export const Symbols = ({ type }: TCalculatorContainer) => {
+export const Symbols = ({ type, onDoubleClick }: TCalculatorContainer & TBaseProps) => {
     const { details } = useAppSelector(getDetailsState);
     return (
-        <DetailsGroup name="symbols" type={type}>
+        <DetailsGroup name="symbols" type={type} onDoubleClick={onDoubleClick}>
             <div className="grid grid-cols-3 gap-2">
                 {symbols.map((symbol) => (
                     <SymbolBtn

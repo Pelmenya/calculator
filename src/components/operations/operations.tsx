@@ -6,12 +6,13 @@ import { DetailsGroup } from '../details-group/details-group';
 import { SymbolBtn } from '../symbol-btn/symbol-btn';
 import cn from 'classnames';
 import { TOperations } from '../../utils/types/t-operations';
+import { TBaseProps } from '../../redux/types/t-base-props';
 
-export const Operations = ({ type }: TCalculatorContainer) => {
+export const Operations = ({ type, onDoubleClick }: TCalculatorContainer & TBaseProps) => {
     const { details } = useAppSelector(getDetailsState);
 
     return (
-        <DetailsGroup name="operations" type={type}>
+        <DetailsGroup name="operations" type={type} onDoubleClick={onDoubleClick}> 
             <div className="grid grid-cols-4 gap-2">
                 {operations.map((operation) => (
                     <SymbolBtn

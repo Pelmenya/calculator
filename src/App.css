@@ -31,4 +31,5 @@
 
 .constructor {
     grid-area: constructor;
+    display: block;
 }

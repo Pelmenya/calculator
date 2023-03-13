@@ -15,7 +15,7 @@ TCalculatorContainer & {
     name: TDetails;
 };
 
-export const DetailsGroup = ({ children, name, type }: TDetailsGroupProps) => {
+export const DetailsGroup = ({ children, name, type, onDoubleClick }: TDetailsGroupProps) => {
     const { mode } = useAppSelector(getModeState);
     const dispatch = useAppDispatch();
     const { details, constructor } = useAppSelector(getDetailsState);
@@ -64,10 +64,11 @@ export const DetailsGroup = ({ children, name, type }: TDetailsGroupProps) => {
 
     return (
         <div
+            onDoubleClick={onDoubleClick}
             ref={
                 mode === 'Runtime' ? null : type === 'constructor' ? drop : null
             }
-            className={cn('p-1 details-group bg-white', {
+            className={cn('details-group bg-white', {
                 ['details-group_selected']: !details.includes(name),
                 ['details-group_blocked']:
                     (!details.includes(name) && type !== 'constructor') ||
@@ -92,7 +93,7 @@ export const DetailsGroup = ({ children, name, type }: TDetailsGroupProps) => {
                                     : drag
                             : null
                 }
-                className={cn('details-group-inner', {
+                className={cn('p-1 details-group-inner', {
                     ['details-group_blocked']:
                         (!details.includes(name) && type !== 'constructor') ||
                         isContructorDisplay,
