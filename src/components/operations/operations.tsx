@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../hooks/use-app-selector';
-import { getDetailsState } from '../../redux/controllers/details';
+import { getDetailsState } from '../../redux/selectors/details';
 import { TCalculatorContainer } from '../../redux/types/t-calculator-container';
 import { operations } from '../../utils/constants/operations';
 import { DetailsGroup } from '../details-group/details-group';

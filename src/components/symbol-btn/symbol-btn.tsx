@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import cn from 'classnames';
 import { useAppSelector } from '../../hooks/use-app-selector';
-import { getModeState } from '../../redux/controllers/mode';
+import { getModeState } from '../../redux/selectors/mode';
 import { TBaseProps } from '../../redux/types/t-base-props';
 import './symbol-btn.css';
 import { TSymbols } from '../../utils/types/t-symbols';
@@ -12,7 +12,7 @@ import {
     setResult,
     setSymbol,
 } from '../../redux/slices/calculate';
-import { getCalculateState } from '../../redux/controllers/calculate';
+import { getCalculateState } from '../../redux/selectors/calculate';
 
 export type TSymbolBtnProps = TBaseProps & {
     symbol?: TSymbols;

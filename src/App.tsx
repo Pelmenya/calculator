@@ -3,7 +3,7 @@ import { Constructor } from './components/constructor/constructor';
 import { Details } from './components/details/details';
 import { Mode } from './components/mode/mode';
 import { useAppSelector } from './hooks/use-app-selector';
-import { getModeState } from './redux/controllers/mode';
+import { getModeState } from './redux/selectors/mode';
 import cn from 'classnames';
 
 export function App() {

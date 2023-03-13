@@ -5,7 +5,7 @@ import { SymbolBtn } from '../symbol-btn/symbol-btn';
 import cn from 'classnames';
 import './symbols';
 import { useAppSelector } from '../../hooks/use-app-selector';
-import { getDetailsState } from '../../redux/controllers/details';
+import { getDetailsState } from '../../redux/selectors/details';
 import { TSymbols } from '../../utils/types/t-symbols';
 
 export const Symbols = ({ type }: TCalculatorContainer) => {

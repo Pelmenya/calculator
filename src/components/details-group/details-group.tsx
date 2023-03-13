@@ -4,11 +4,11 @@ import { TDetails } from '../../redux/types/t-details';
 import cn from 'classnames';
 import './details-group.css';
 import { useAppSelector } from '../../hooks/use-app-selector';
-import { getDetailsState } from '../../redux/controllers/details';
+import { getDetailsState } from '../../redux/selectors/details';
 import { TCalculatorContainer } from '../../redux/types/t-calculator-container';
 import { useAppDispatch } from '../../hooks/use-app-dispatch';
 import { setDetailsConstructor } from '../../redux/slices/details';
-import { getModeState } from '../../redux/controllers/mode';
+import { getModeState } from '../../redux/selectors/mode';
 
 export type TDetailsGroupProps = TBaseProps &
 TCalculatorContainer & {

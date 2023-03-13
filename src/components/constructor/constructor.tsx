@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
 import { useAppDispatch } from '../../hooks/use-app-dispatch';
 import { useAppSelector } from '../../hooks/use-app-selector';
-import { getDetailsState } from '../../redux/controllers/details';
+import { getDetailsState } from '../../redux/selectors/details';
 import { setDetails, setDetailsConstructor } from '../../redux/slices/details';
 import { TDetails } from '../../redux/types/t-details';
 import { Display } from '../display/display';
@@ -11,7 +11,7 @@ import { Equally } from '../equally/equally';
 import { Operations } from '../operations/operations';
 import { Symbols } from '../symbols/symbols';
 import cn from 'classnames';
-import { getCalculateState } from '../../redux/controllers/calculate';
+import { getCalculateState } from '../../redux/selectors/calculate';
 
 export const Constructor = () => {
     const dispatch = useAppDispatch();
