@@ -11,12 +11,14 @@ import { Equally } from '../equally/equally';
 import { Operations } from '../operations/operations';
 import { Symbols } from '../symbols/symbols';
 import cn from 'classnames';
-import { getCalculateState } from '../../redux/selectors/calculate';
+import { useCalculate } from '../../hooks/use-calculate';
+import { getModeState } from '../../redux/selectors/mode';
 
 export const Constructor = () => {
     const dispatch = useAppDispatch();
-    const { result } = useAppSelector(getCalculateState);
+    const { getResult } = useCalculate();
     const { constructor, details } = useAppSelector(getDetailsState);
+    const { mode } = useAppSelector(getModeState);
     const [constructorList, setConstructorList] = useState(constructor);
 
     const dropDetail = (detail: { name: TDetails }) => {
@@ -41,14 +43,17 @@ export const Constructor = () => {
         setConstructorList(constructor);
     }, [setConstructorList, constructor]);
 
-    const handlerOnDoubleClick = (detail: TDetails) => {
-        dispatch(setDetails([...details, detail]));
-        dispatch(
-            setDetailsConstructor(
-                constructorList.filter((item) => item !== detail),
-            ),
-        );
-    };
+    const handlerOnDoubleClick = 
+        (detail: TDetails) => {
+            if (mode === 'Constructor') {
+                dispatch(setDetails([...details, detail]));
+                dispatch(
+                    setDetailsConstructor(
+                        constructorList.filter((item) => item !== detail),
+                    ),
+                );
+            }
+        };
 
     return (
         <>
@@ -77,7 +82,7 @@ export const Constructor = () => {
                                 handlerOnDoubleClick('display')
                             }
                         >
-                            <>{result}</>
+                            <span>{getResult()}</span>
                         </Display>
                     )}
                     {constructorList.map((detail) => {

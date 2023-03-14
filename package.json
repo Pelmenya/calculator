@@ -1,5 +1,6 @@
 {
   "name": "calculator",
+  "author": "Dmitry Lyapin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -43,9 +44,9 @@
     "react-dnd": "16.0.1",
     "react-dnd-html5-backend": "16.0.1",
     "react-dom": "18.2.0",
-    "react-redux": "^8.0.5",
+    "react-redux": "8.0.5",
     "react-scripts": "5.0.1",
-    "tailwindcss": "^3.2.7",
+    "tailwindcss": "3.2.7",
     "typescript": "4.9.5",
     "web-vitals": "2.1.4"
   },

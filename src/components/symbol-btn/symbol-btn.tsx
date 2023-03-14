@@ -8,44 +8,28 @@ import { TSymbols } from '../../utils/types/t-symbols';
 import { TOperations } from '../../utils/types/t-operations';
 import { useAppDispatch } from '../../hooks/use-app-dispatch';
 import {
-    setOperation,
-    setResult,
-    setSymbol,
+    setInputResult,
 } from '../../redux/slices/calculate';
 import { getCalculateState } from '../../redux/selectors/calculate';
 
 export type TSymbolBtnProps = TBaseProps & {
-    symbol?: TSymbols;
-    operation?: TOperations;
+    symbol?: TSymbols | TOperations;
 };
 
 export const SymbolBtn = ({
     children,
     className,
     symbol,
-    operation,
 }: TSymbolBtnProps) => {
     const dispatch = useAppDispatch();
     const { mode } = useAppSelector(getModeState);
-    const {
-        result,
-    } = useAppSelector(getCalculateState);
+    const { inputResult } = useAppSelector(getCalculateState);
 
     const isRuntime = mode === 'Runtime';
 
     const handlerRuntime = useCallback(() => {
-        if (symbol) {
-            dispatch(setSymbol(symbol));
-            if (result === '0') {
-                dispatch(setResult(`${symbol}`));
-            } else if (result.split('').includes(',') && symbol === ',') {
-                dispatch(setResult(`${result}`));
-            } else dispatch(setResult(`${result + symbol}`));
-        }
-        if (operation) {
-            dispatch(setOperation(operation));
-        }
-    }, [symbol, operation, result]);
+        dispatch(setInputResult(String(inputResult) + String(symbol)));
+    }, [symbol, inputResult]);
 
     return (
         <button

@@ -1,3 +1,3 @@
 export const operations = [
-    '/', 'x', '-', '+',
+    '\/', 'x', '\-', '\+',
 ];

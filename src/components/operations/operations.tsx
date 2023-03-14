@@ -17,7 +17,7 @@ export const Operations = ({ type, onDoubleClick }: TCalculatorContainer & TBase
                 {operations.map((operation) => (
                     <SymbolBtn
                         key={operation}
-                        operation={operation as TOperations}
+                        symbol={operation as TOperations}
                         className={cn({
                             ['cursor-move']:
                                 details.includes('operations') ||

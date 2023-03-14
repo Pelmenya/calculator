@@ -7,8 +7,8 @@ export interface IDetailsState {
 }
 
 const initialState: IDetailsState = {
-    details: ['display', 'operations', 'symbols', 'equally'],
-    constructor: [],
+    details: [],
+    constructor: ['display', 'operations', 'symbols', 'equally'],
 };
 
 export const detailsSlice = createSlice({
