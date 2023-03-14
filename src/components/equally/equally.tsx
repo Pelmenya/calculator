@@ -12,6 +12,7 @@ import { useAppSelector } from '../../hooks/use-app-selector';
 import { useAppDispatch } from '../../hooks/use-app-dispatch';
 import { getCalculateState } from '../../redux/selectors/calculate';
 import { setInputResult } from '../../redux/slices/calculate';
+import { parseEqually } from '../../utils/functions/parse-equally';
 
 export const Equally = ({
     type,
@@ -25,7 +26,7 @@ export const Equally = ({
     const isRuntime = mode === 'Runtime';
 
     const handlerRuntime = useCallback(() => {
-        dispatch(setInputResult(String(inputResult) + String(equallySymbol)));
+        dispatch(setInputResult(parseEqually(inputResult)));
     }, [inputResult]);
 
     return (
