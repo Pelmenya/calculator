@@ -22,11 +22,32 @@ function normalizeNumberToString(num: number): string {
 }
 
 function filterCommas(str: string): string {
-    const arrReal = str.split(',');
-    if (arrReal.length < 3) {
-        return str;
+    const symbolsArr = str.split('');
+
+    if (symbolsArr[0] === '-') {
+        symbolsArr.splice(0, 1);
     }
-    return str.slice(0, -1);
+
+    const operationsSymbols = symbolsArr.filter(symbol => operations.includes(symbol));
+
+    console.log('Commas = ', operationsSymbols);
+
+    if (operationsSymbols.length) {
+        const operands = str.split(operationsSymbols[0]);
+        const arrSecondOperandSymbols = operands[1].split(',');
+        if (arrSecondOperandSymbols.length < 3) {
+            return str;
+        }
+        return operands[0] + operationsSymbols[0] + arrSecondOperandSymbols[0] + arrSecondOperandSymbols[1];
+
+    } else {
+        const arrReal = str.split(',');
+        if (arrReal.length < 3) {
+            return str;
+        }
+        return str.slice(0, -1);
+
+    }
 }
 
 function filterNils(str: string): string {
@@ -46,7 +67,6 @@ function filterNils(str: string): string {
 }
 
 function parserOperations(str: string): string {
-    console.log('Parse String', str);
     const symbolsArr = str.split('');
     const isNegativeFirstOperand = symbolsArr[0] === '-' ? true : false;
 
@@ -83,8 +103,6 @@ function parserOperations(str: string): string {
 
     return str;
 }
-
-
 
 function calculate(firstOperand: number, secondOperand: number, operation: TOperations) {
     console.log('firstOperand ', firstOperand);
