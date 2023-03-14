@@ -4,7 +4,7 @@ export interface IModeState {
 }
 
 const initialState: IModeState = {
-    mode: 'Runtime',
+    mode: 'Constructor',
 };
 
 export const modeSlice = createSlice({

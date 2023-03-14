@@ -6,8 +6,7 @@ import { calculateSlice } from '../slices/calculate';
 
 
 const isDev = process.env.NODE_ENV !== 'production';
-const middlewares = !isDev ? [logger] : [];
-
+const middlewares = isDev ? [logger] : [];
 
 export const store = configureStore({
     reducer: {
@@ -16,7 +15,7 @@ export const store = configureStore({
         [calculateSlice.name]: calculateSlice.reducer,
     },
     devTools: isDev,
-    middleware: (gDM) => gDM().concat(middlewares),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middlewares),
 });
 
 export type TAppStore = typeof store;
