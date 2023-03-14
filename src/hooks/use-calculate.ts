@@ -30,7 +30,6 @@ function filterCommas(str: string): string {
 }
 
 function filterNils(str: string): string {
-    console.log('ddd', str);
     if (str.length > 1) {
         const firstChar = str.charAt(0);
         const secondChar = str.charAt(1);
@@ -47,10 +46,12 @@ function filterNils(str: string): string {
 }
 
 function parserOperations(str: string): string {
-
+    console.log('Parse String', str);
     const symbolsArr = str.split('');
     const isNegativeFirstOperand = symbolsArr[0] === '-' ? true : false;
+
     let operationsSymbols: string[] = [];
+
     if (isNegativeFirstOperand) {
         symbolsArr.splice(0, 1);
         operationsSymbols = symbolsArr.filter(symbol => operations.includes(symbol));
@@ -59,16 +60,22 @@ function parserOperations(str: string): string {
     }
 
     if (operationsSymbols.length === 2) {
-        
+
         const operands = str.split(operationsSymbols[0]);
 
+        if (operands[0] === '') {
+            operands.splice(0, 1);
+            operands[0] = `-${operands[0]}`;
+        }
+
+        const firstOperand = Number(operands[0].replace(',', '.'));
+        const operationSymbol = operationsSymbols[0];
         let res: number;
 
-        const firstOperand =  Number(operands[0].replace(',', '.'));
         if (operationsSymbols[0] === operationsSymbols[1]) {
-            res = calculate(firstOperand, Number(operands[1].replace(',', '.')), operationsSymbols[0] as TOperations);
+            res = calculate(firstOperand, Number(operands[1].replace(',', '.')), operationSymbol as TOperations);
         } else {
-            res = calculate(firstOperand, Number(operands[1].replace(',', '.').slice(0, -1)), operationsSymbols[0] as TOperations);
+            res = calculate(firstOperand, Number(operands[1].replace(',', '.').slice(0, -1)), operationSymbol as TOperations);
         }
 
         return normalizeNumberToString(res) + operationsSymbols[1];
@@ -76,6 +83,8 @@ function parserOperations(str: string): string {
 
     return str;
 }
+
+
 
 function calculate(firstOperand: number, secondOperand: number, operation: TOperations) {
     console.log('firstOperand ', firstOperand);
