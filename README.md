@@ -1,29 +1,25 @@
 
-# [Сайт Калькулятор](https://calculator-app.website.yandexcloud.net/).
+# [Сайт Калькулятор](https://calculator-app.website.yandexcloud.net/)
 
+## [Тестовое задание (описание)](https://sendsay.notion.site/Frontend-e378a45c3a934dafb6e44f79da2a0040)
+
+## [Макет Figma](https://www.figma.com/file/pdYzuOkvXY3Q00YRAMsLuz/Calculator-Constructor?node-id=0%3A1&t=rmhajEDDwzsf9gyK-0)
 ## Available Scripts
 
-In the project directory, you can run:
-
+Запуск приложения в режиме разработки:
+```
 ### `npm start`
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Открыть [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
+Запуcк тестов
+```
 ### `npm test`
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
+Создать билд
+```
 ### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-### `npm run eject`
+```
